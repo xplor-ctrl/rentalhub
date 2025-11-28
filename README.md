@@ -1,28 +1,118 @@
-# Rent a Ride
+# RentHub - Multi-Item Rental Marketplace
 
-This repository contains the code for a Full stack car rental website with 3 modules User,Admin,Vendor . The project is divided into Client and backend
+A full-stack rental marketplace platform supporting multiple item categories (vehicles, electronics, tools, furniture, sports equipment, party supplies, musical instruments, and photography gear). Features user, admin, and vendor modules with complete booking and management capabilities.
 
-## Installation
+## 📋 Prerequisites
 
-Clone Rent a Ride
+Before running this project on a new PC, ensure you have the following installed:
+
+### Required Software
+
+1. **Node.js** (v16 or higher)
+   - Download: https://nodejs.org/
+   - Verify installation: `node --version`
+
+2. **npm** (comes with Node.js)
+   - Verify installation: `npm --version`
+
+3. **Git** (for version control)
+   - Download: https://git-scm.com/
+   - Verify installation: `git --version`
+
+### Optional (for full functionality)
+
+4. **MongoDB** (for database - optional, uses mock data if not available)
+   - Download: https://www.mongodb.com/try/download/community
+   - Or use MongoDB Atlas (cloud): https://www.mongodb.com/cloud/atlas
+
+## 🚀 Installation & Setup
+
+### 1. Clone the Repository
 
 ```bash
-
+git clone https://github.com/xplor-ctrl/rentalhub.git
+cd rentalhub
 ```
 
-Install node modules
+### 2. Backend Setup
 
 ```bash
-  cd backend
-  npm install
-  npm run dev
+# Navigate to backend directory
+cd backend
+
+# Install dependencies
+npm install
+
+# Create .env file (copy from .env.example if available)
+# Add your environment variables:
+# - mongo_uri (optional, uses mock DB if not provided)
+# - JWT_SECRET
+# - CLOUDINARY credentials (optional)
+# - SMTP credentials (optional)
+
+# Start backend server
+npm run dev
 ```
 
+**Backend will run on:** http://localhost:3000
+
+### 3. Frontend Setup
+
 ```bash
-  cd client
-  npm install
-  npm run dev
+# Navigate to client directory (from project root)
+cd client
+
+# Install dependencies
+npm install
+
+# Create .env file with:
+# VITE_PRODUCTION_BACKEND_URL=http://localhost:3000
+# VITE_FIREBASE_API_KEY (optional, for Google Sign In)
+
+# Start frontend development server
+npm run dev
 ```
+
+**Frontend will run on:** http://localhost:5173
+
+## 🔧 Environment Variables
+
+### Backend (.env)
+```env
+mongo_uri=mongodb://localhost:27017/rent-a-ride
+JWT_SECRET=your_jwt_secret_key_here
+CLOUDINARY_NAME=your_cloudinary_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+SMTP_EMAIL=your_email@gmail.com
+SMTP_PASSWORD=your_email_password
+```
+
+### Frontend (client/.env)
+```env
+VITE_PRODUCTION_BACKEND_URL=http://localhost:3000
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
+```
+
+## 📦 Quick Start (Without MongoDB)
+
+If you don't have MongoDB installed, the app will automatically use an in-memory mock database:
+
+```bash
+# Backend
+cd backend
+npm install
+npm run dev
+
+# Frontend (in new terminal)
+cd client
+npm install
+npm run dev
+```
+
+Visit http://localhost:5173 to see the app!
 
 ## Tech Stack
 
@@ -104,23 +194,3 @@ A full-scale Car Rental Platform with user, admin, and vendor modules, designed 
 
 - Version Control: Employed Git throughout the project for version control, collaboration, and backup.
 
-## Screenshots
-
-//user
-<img width="1440" alt="Screenshot 2024-04-06 at 3 06 32 PM" src="https://github.com/user-attachments/assets/4b769f7d-5d2c-43a7-8283-07fa8402de92">
-<img width="1430" alt="Screenshot 2024-12-10 at 12 35 41 AM" src="https://github.com/user-attachments/assets/5d6e0160-5f1d-4e67-a64e-1e18fb17a590">
-<img width="1425" alt="Screenshot 2024-12-10 at 12 35 58 AM" src="https://github.com/user-attachments/assets/ac6b0f33-344e-4009-a979-23ea7dc3a5bb">
-<img width="1430" alt="Screenshot 2024-12-10 at 12 36 15 AM" src="https://github.com/user-attachments/assets/40e2dc7d-0694-483d-bf4a-badac9c4d5f3">
-<img width="1426" alt="Screenshot 2024-12-10 at 12 36 28 AM" src="https://github.com/user-attachments/assets/7ce5d1fa-c51f-414b-92da-cc04ac7c3402">
-<img width="1428" alt="Screenshot 2024-12-10 at 1 59 45 AM" src="https://github.com/user-attachments/assets/0e87009c-832d-4c5e-be7c-ecd4df341070">
-<img width="1408" alt="Screenshot 2024-12-10 at 2 00 01 AM" src="https://github.com/user-attachments/assets/baf15b5d-2e04-4410-803b-527dddda1aab">
-
-//Admin
-<img width="1418" alt="Screenshot 2024-12-10 at 2 01 09 AM" src="https://github.com/user-attachments/assets/c08e3bf0-2776-4236-80b6-6714d52ec8d7">
-<img width="1421" alt="Screenshot 2024-12-10 at 2 04 29 AM" src="https://github.com/user-attachments/assets/ce6dada8-41b7-4aec-b86a-4a359f6d339f">
-<img width="1431" alt="Screenshot 2024-12-10 at 2 04 42 AM" src="https://github.com/user-attachments/assets/467503a4-ab9a-4396-bc57-1abff5fe8106">
-<img width="1418" alt="Screenshot 2024-12-10 at 2 05 02 AM" src="https://github.com/user-attachments/assets/8e1d2948-6316-420b-8336-30ec7c752b04">
-
-//vendor
-<img width="1418" alt="Screenshot 2024-12-10 at 2 05 02 AM" src="https://github.com/user-attachments/assets/59a9a9c7-5dc1-4f61-8d15-43266579386c">
-<img width="1432" alt="Screenshot 2024-12-10 at 2 08 00 AM" src="https://github.com/user-attachments/assets/4e9d8f66-0984-4163-8dea-f9023db56ce0">
